@@ -11,7 +11,8 @@ func hello(w http.ResponseWriter, r *http.Request)  {
 
 func main() {
 	http.HandleFunc("/", hello)
-	err := http.ListenAndServe("127.0.0.1:9000", nil)
+	// 阿里云服务器上不能使用127.0.0.1
+	err := http.ListenAndServe(":9000", nil)
 	if err != nil {
 		panic(err)
 	}
